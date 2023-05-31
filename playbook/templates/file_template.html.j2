@@ -1,0 +1,17 @@
+         Security Check Report on Server (localhost) 
+----------------------------------------------------------------
+ CONTENT                                STATUS
+ PrintMode                 -            {{ 'Disabled' if printmode_output.rc == 0 else 'Enabled' }} 
+ SSH port number           -            {{ ssh_port_output.stdout }}
+ Root UID                  -            {{ '0' if root_uid.rc == 0 else 'Root UID not 0' }}
+ PasswordAuthentication    -            {{ 'Enabled' if Password_Auth else 'Disabled'}}
+ X11Forwarding             -            {{ 'Enabled' if X11_Forwarder else 'Disabled'}}
+ PermitRootLogin           -            {{ 'prohibit-password' if permit_root_login_prohibited else 'Password not set' }} 
+ PermitEmptyPasswords      -            {{ 'enabled' if permit_empty_passwords_enabled else 'disabled' }}
+ HostbasedAuthentication   -            {{ 'enabled' if host_based_authenticatio_enabled else 'disabled' }}
+ PAM (pluggble authentication mode)     {{ 'Enabled' if pam_output.rc == 0 else 'Disabled' }} 
+ RSAAuthentication         -            {{ 'Present' if rsa_present else 'Not Present' }}
+ LogLevel INFO             -            {{ 'Enabled' if log_level_info else 'Disabled' }}  
+ syslogFacility            -            {{ 'Enabled' if sys_log_facility else 'Disabled'}}
+ StrictModes               -            {{ 'Enabled' if  strict_modes else 'Disabled'}}
+ MaxAuthTries file         -            {{ 'Present' if max_auth else 'Not Present' }}
